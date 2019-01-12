@@ -62,4 +62,17 @@ describe('Campaigns', () => {
       assert(error);
     }
   });
+
+  it('allows a manager to make a payment request', async () => {
+    await campaign.methods
+      .createRequest('Buy Food', '500', accounts[1])
+      .send({
+        from: accounts[0],
+        gas: 1000000
+      });
+
+    const request = await campaign.methods.requests(0).call();
+
+    assert.equal('Buy Food', request.description);
+  });
 });
