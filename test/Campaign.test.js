@@ -107,3 +107,5 @@ describe('Campaigns', () => {
     assert(balance > 104);
   });
 });
+
+// could write tests on different uses cases for processing requests as a non manager
