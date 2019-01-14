@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'semantic-ui-react';
+import { Button, Table } from 'semantic-ui-react';
 import { Link } from '../../../routes';
 import Layout from '../../../components/Layout';
 import Campaign from '../../../ethereum/campaign';
@@ -26,6 +26,8 @@ class RequestIndex extends Component {
   };
 
   render() {
+    const { Header, Row, HeaderCell, Body } = Table;
+
     return (
       <Layout>
         <h3>Pending Requests</h3>
@@ -34,6 +36,19 @@ class RequestIndex extends Component {
             <Button primary>Add Request</Button>
           </a>
         </Link>
+        <Table>
+          <Header>
+            <Row>
+              <HeaderCell>ID</HeaderCell>
+              <HeaderCell>Description</HeaderCell>
+              <HeaderCell>Amount</HeaderCell>
+              <HeaderCell>Recipient</HeaderCell>
+              <HeaderCell>Approval Count</HeaderCell>
+              <HeaderCell>Approve</HeaderCell>
+              <HeaderCell>Finalize</HeaderCell>
+            </Row>
+          </Header>
+        </Table>
       </Layout>
     );
   }
